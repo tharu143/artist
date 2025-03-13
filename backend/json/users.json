@@ -1,0 +1,30 @@
+[
+    {
+      "_id": "605c72ef1f1b2c001f9e4a04",
+      "name": "Rohith Artist",
+      "email": "rohith.artist@example.com",
+      "password": "$2a$12$GQzS.Rf2L5FI1wObDxEaMeP.q36/6DYo4Re43Nz/81MhnoW4Kx0x.", 
+      "role": "artist"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a05",
+      "name": "Priya Artist",
+      "email": "priya.artist@example.com",
+      "password": "$2a$12$7Yd82e8zilBNqjaUDLhL1.A4tAhRVq2/nHhhWgqGNIEbkbgqzn/nC",
+      "role": "artist"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a06",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "$2a$12$gylYoThqSLgVqP6D.wNocusqcFDjoSQtlowfj.qV/TWU51.wNNwce",
+      "role": "admin"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a07",
+      "name": "Customer John",
+      "email": "john.customer@example.com",
+      "password": "$2a$12$GXXqh7EwpZhcJPkE5Q.Y4e.MYMO6H8hfeJxn2B82hafm/gw3m3SMO",
+      "role": "user"
+    }
+  ]

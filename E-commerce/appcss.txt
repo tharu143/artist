@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  font-family:'Times New Roman', Times, serif;
+  background-color: #f5c807;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+/* 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background-color: #efebe2;
+  border-radius: 22px;
+  margin-top: 10px;
+  
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar img {
+  width: 30px;
+  margin-right: -48rem;
+  margin-left: 5px;
+}
+.navbar nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: black;
+  padding:2px;
+} */ 
+
+.main-content1,
+.main-content2 {
+  text-align: center;
+  padding: 2rem 0;
+}
+.main-content1 {
+  background-color: #efebe2;
+  margin-top: 3rem;
+  border-radius: 20px;
+  
+  
+}
+.main-content1 h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-content2 p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: larger;
+  text-align: justify;
+}
+
+.main-content1 button {
+  padding: 0.5rem 1rem;
+  background-color: #ec8423;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
+
+/* General container styling for the product list */
+.ecommerce-box-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* Increased gap for better spacing */
+  justify-content: center;
+  padding: 24px; /* Increased padding for a cleaner layout */
+}
+
+/* Styling for individual product boxes */
+.ecommerce-box {
+  border: 1px solid #e0e0e0; /* Softer border color */
+  border-radius: 16px; /* Slightly larger border radius for a modern look */
+  overflow: hidden;
+  width: 300px; /* Increased width for better content display */
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for product boxes */
+.ecommerce-box:hover {
+  transform: translateY(-10px); /* Slightly more pronounced hover effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Image container styling */
+.image-container {
+  width: 100%;
+  height: 220px; /* Adjusted height for better image aspect ratio */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image styling for uniformity */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.ecommerce-box:hover .product-image {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Details section styling */
+.product-details {
+  padding: 20px; /* Increased padding for better spacing */
+  text-align: center;
+}
+
+/* Product name styling */
+.product-name {
+  font-size: 20px; /* Larger font size for emphasis */
+  font-weight: bold;
+  margin: 12px 0 8px;
+  color: #333;
+}
+
+/* Product price styling */
+.product-price {
+  font-size: 18px; /* Slightly larger font size */
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px; /* Increased gap between buttons */
+}
+
+/* General button styling */
+button {
+  flex: 1;
+  padding: 10px 14px; /* Larger padding for better clickability */
+  font-size: 16px; /* Increased font size for readability */
+  border-radius: 8px; /* Softer button corners */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Primary button styling */
+button.btn-primary {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Success button styling */
+button.btn-success {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+}
+
+button.btn-success:hover {
+  background-color: #1e7e34;
+  box-shadow: 0 6px 10px rgba(40, 167, 69, 0.3);
+}
+ */

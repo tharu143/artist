@@ -1,0 +1,41 @@
+[
+    {
+      "_id": "605c72ef1f1b2c001f9e4a08",
+      "productId": "605c72ef1f1b2c001f9e4a01",
+      "customerId": "605c72ef1f1b2c001f9e4a07",
+      "artistId": "605c72ef1f1b2c001f9e4a04",
+      "customer": "John Doe",
+      "total": 1500,
+      "description": "Custom abstract painting with blue tones",
+      "pictureUrl": "http://localhost:5000/uploads/order-picture-1.jpg",
+      "status": "pending",
+      "proofUrl": null,
+      "createdAt": "2025-03-10T10:00:00Z"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a09",
+      "productId": "605c72ef1f1b2c001f9e4a02",
+      "customerId": "605c72ef1f1b2c001f9e4a07",
+      "artistId": "605c72ef1f1b2c001f9e4a04",
+      "customer": "John Doe",
+      "total": 800,
+      "description": "Small vase for living room",
+      "pictureUrl": "http://localhost:5000/uploads/order-picture-2.jpg",
+      "status": "in_progress",
+      "proofUrl": null,
+      "createdAt": "2025-03-11T14:30:00Z"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a0a",
+      "productId": "605c72ef1f1b2c001f9e4a03",
+      "customerId": "605c72ef1f1b2c001f9e4a07",
+      "artistId": "605c72ef1f1b2c001f9e4a05",
+      "customer": "John Doe",
+      "total": 2000,
+      "description": "Sculpture for garden",
+      "pictureUrl": null,
+      "status": "completed",
+      "proofUrl": "http://localhost:5000/uploads/proof-sculpture.jpg",
+      "createdAt": "2025-03-12T09:15:00Z"
+    }
+  ]

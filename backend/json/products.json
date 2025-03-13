@@ -1,0 +1,23 @@
+[
+    {
+      "_id": "605c72ef1f1b2c001f9e4a01",
+      "name": "Abstract Painting",
+      "price": 1500,
+      "image": "http://localhost:5000/uploads/abstract-painting.jpg",
+      "artistId": "605c72ef1f1b2c001f9e4a04"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a02",
+      "name": "Handmade Vase",
+      "price": 800,
+      "image": "http://localhost:5000/uploads/handmade-vase.jpg",
+      "artistId": "605c72ef1f1b2c001f9e4a04"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a03",
+      "name": "Wooden Sculpture",
+      "price": 2000,
+      "image": "http://localhost:5000/uploads/wooden-sculpture.jpg",
+      "artistId": "605c72ef1f1b2c001f9e4a05"
+    }
+  ]

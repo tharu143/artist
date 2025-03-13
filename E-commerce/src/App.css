@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family:'Times New Roman', Times, serif;
+  background-color: #e9c41f;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-content1,
+.main-content2 {
+  text-align: center;
+  padding: 2rem 0;
+}
+.main-content1 {
+  background-color: #efebe2;
+  margin-top: 3rem;
+  border-radius: 20px;
+}
+.main-content1 h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-content2 p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: larger;
+  text-align: justify;
+}
+
+.main-content1 button {
+  padding: 0.5rem 1rem;
+  background-color: #e0bd1f;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
+.main-content1 button a {
+  text-decoration: none;
+  font-size: larger;
+} 

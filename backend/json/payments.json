@@ -1,0 +1,26 @@
+[
+    {
+      "_id": "605c72ef1f1b2c001f9e4a0c",
+      "orderId": "605c72ef1f1b2c001f9e4a08",
+      "artistId": "605c72ef1f1b2c001f9e4a04",
+      "amount": 1080, 
+      "status": "pending",
+      "createdAt": "2025-03-10T10:05:00Z"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a0d",
+      "orderId": "605c72ef1f1b2c001f9e4a09",
+      "artistId": "605c72ef1f1b2c001f9e4a04",
+      "amount": 576, 
+      "status": "pending",
+      "createdAt": "2025-03-11T14:35:00Z"
+    },
+    {
+      "_id": "605c72ef1f1b2c001f9e4a0e",
+      "orderId": "605c72ef1f1b2c001f9e4a0a",
+      "artistId": "605c72ef1f1b2c001f9e4a05",
+      "amount": 1440,
+      "status": "completed",
+      "createdAt": "2025-03-12T09:20:00Z"
+    }
+  ]

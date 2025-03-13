@@ -1,0 +1,16 @@
+[
+    {
+      "_id": "605c72ef1f1b2c001f9e4a0b",
+      "userId": "605c72ef1f1b2c001f9e4a07",
+      "items": [
+        {
+          "productId": "605c72ef1f1b2c001f9e4a01",
+          "quantity": 1
+        },
+        {
+          "productId": "605c72ef1f1b2c001f9e4a02",
+          "quantity": 2
+        }
+      ]
+    }
+  ]
