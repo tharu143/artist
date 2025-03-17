@@ -11,7 +11,32 @@ const {
 } = require('../controllers/orderController');
 const { auth, isArtist, isAdmin } = require('../middlewares/auth');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, 'uploads/'),
+  filename: (req, file, cb) => {
+    const uniquePrefix = Date.now();
+    const ext = path.extname(file.originalname);
+    const basename = path.basename(file.originalname, ext);
+    cb(null, `${uniquePrefix}-${basename}${ext}`);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+  if (allowedTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only JPEG, PNG, and PDF files are allowed!'), false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
 
 router.get('/', auth, getOrders);
 router.get('/artist', auth, isArtist, getArtistOrders);

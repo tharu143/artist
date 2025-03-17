@@ -12,21 +12,27 @@ const ArtistProductUpload = () => {
   const handleProductSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
+    if (!token) {
+      alert('Please log in first!');
+      return;
+    }
+  
     const formData = new FormData();
-    formData.append("name", productName);
-    formData.append("price", productPrice);
-    if (productFile) formData.append("image", productFile);
-
+    formData.append('name', productName);
+    formData.append('price', productPrice);
+    if (productFile) formData.append('image', productFile);
+  
     try {
-      await axios.post("http://localhost:5000/api/products", formData, {
-        headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
+      await axios.post('http://localhost:5000/api/products', formData, { // Removed 'response'
+        headers: { Authorization: `Bearer ${token}` },
       });
-      alert("Product posted successfully!");
+      alert('Product posted successfully!');
       setProductName('');
       setProductPrice('');
       setProductFile(null);
     } catch (err) {
-      console.error(err);
+      console.error('Error:', err.response?.status, err.response?.data);
+      alert(`Failed to upload product: ${err.response?.data?.message || err.message}`);
     }
   };
 
@@ -42,24 +48,44 @@ const ArtistProductUpload = () => {
             <Form onSubmit={handleProductSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Product Name</Form.Label>
-                <Form.Control type="text" value={productName} onChange={(e) => setProductName(e.target.value)} required className="border-warning" />
+                <Form.Control
+                  type="text"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  required
+                  className="border-warning"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="number" value={productPrice} onChange={(e) => setProductPrice(e.target.value)} required className="border-warning" />
+                <Form.Control
+                  type="number"
+                  value={productPrice}
+                  onChange={(e) => setProductPrice(e.target.value)}
+                  required
+                  className="border-warning"
+                />
               </Form.Group>
               <Form.Group className="mb-4">
                 <Form.Label>Product Image</Form.Label>
                 <div className="border border-warning rounded p-4 text-center">
-                  <Form.Control type="file" onChange={(e) => setProductFile(e.target.files[0])} className="d-none" id="fileInput" />
+                  <Form.Control
+                    type="file"
+                    accept="image/jpeg,image/png,application/pdf" // Restrict to allowed types
+                    onChange={(e) => setProductFile(e.target.files[0])}
+                    className="d-none"
+                    id="fileInput"
+                  />
                   <Button as="label" htmlFor="fileInput" variant="outline-warning" className="w-100">
                     <Upload size={16} className="me-2" />
-                    Upload Product Image
+                    Upload Product Image (JPEG, PNG, PDF)
                   </Button>
                   {productFile && <div className="mt-2 text-muted small">{productFile.name}</div>}
                 </div>
               </Form.Group>
-              <Button variant="warning" type="submit" className="w-100">Submit Product</Button>
+              <Button variant="warning" type="submit" className="w-100">
+                Submit Product
+              </Button>
             </Form>
           </div>
         </div>

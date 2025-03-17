@@ -1,0 +1,30 @@
+.ecommerce-box {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .product-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .product-details {
+    padding: 15px;
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .product-price {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .product-description {
+    font-size: 0.9rem;
+    color: #777;
+  }

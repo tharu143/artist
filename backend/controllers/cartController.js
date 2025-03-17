@@ -1,4 +1,5 @@
 const Cart = require('../models/Cart');
+const Product = require('../models/Product');
 
 exports.getCart = async (req, res) => {
   try {
@@ -12,6 +13,9 @@ exports.getCart = async (req, res) => {
 exports.addToCart = async (req, res) => {
   const { productId, quantity } = req.body;
   try {
+    const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+
     let cart = await Cart.findOne({ userId: req.user.id });
     if (!cart) cart = new Cart({ userId: req.user.id, items: [] });
 
@@ -31,6 +35,8 @@ exports.addToCart = async (req, res) => {
 exports.removeFromCart = async (req, res) => {
   try {
     const cart = await Cart.findOne({ userId: req.user.id });
+    if (!cart) return res.status(404).json({ message: 'Cart not found' });
+
     cart.items = cart.items.filter(item => item.productId.toString() !== req.params.productId);
     await cart.save();
     res.json(cart);

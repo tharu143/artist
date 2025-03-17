@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../styles/Profile.css";
-import userIcon from "../../assets/user.png";
+import userIcon from "../../../assets/home/user.png";
 
 const Profile = () => {
   const [user, setUser] = useState({ name: "", email: "" });

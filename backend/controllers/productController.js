@@ -12,8 +12,19 @@ exports.getProducts = async (req, res) => {
 exports.createProduct = async (req, res) => {
   const { name, price } = req.body;
   const image = req.file ? `/uploads/${req.file.filename}` : null;
+
   try {
-    const product = new Product({ name, price, image, artistId: req.user.id });
+    if (!name || !price) {
+      return res.status(400).json({ message: 'Name and price are required' });
+    }
+
+    const product = new Product({
+      name,
+      price,
+      image, // Path includes original extension
+      artistId: req.user.id,
+    });
+
     await product.save();
     res.status(201).json(product);
   } catch (err) {

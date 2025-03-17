@@ -13,7 +13,8 @@ exports.getOrders = async (req, res) => {
 
 exports.getArtistOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ artistId: req.user.id }).populate('productId');
+    const orders = await Order.find({ artistId: req.user.id })
+      .populate('productId', 'name'); // Ensure population
     res.json(orders);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -33,12 +34,14 @@ exports.getAdminOrders = async (req, res) => {
 };
 
 exports.createOrder = async (req, res) => {
-  const { productId, customer, total, description } = req.body;
+  const { productId, total, description } = req.body;
   const pictureUrl = req.file ? `/uploads/${req.file.filename}` : null;
   try {
     const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+
     const order = new Order({
-      customer,
+      customer: req.user.id, // Use authenticated user's ID
       productId,
       artistId: product.artistId,
       total,
@@ -50,7 +53,7 @@ exports.createOrder = async (req, res) => {
     const payment = new Payment({
       orderId: order._id,
       artistId: product.artistId,
-      amount: total * 0.72, // Assuming 28% commission
+      amount: total * 0.72,
     });
     await payment.save();
 

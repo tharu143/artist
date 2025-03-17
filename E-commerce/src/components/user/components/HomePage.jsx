@@ -11,25 +11,31 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [bagCount, setBagCount] = useState(0);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get("http://localhost:5000/api/products");
-        setProducts(res.data.slice(0, 3)); // Show only 3 featured products
+        setProducts(res.data.slice(0, 3));
+        setError(null);
       } catch (err) {
-        console.error(err);
+        console.error('Error fetching products:', err.response?.data);
+        setError('Failed to load featured products.');
       }
     };
     fetchProducts();
-
-    const token = localStorage.getItem("token");
-    if (!token) navigate("/");
-  }, [navigate]);
+  }, []); // Removed unused token check
 
   const handleAddToBag = async (product) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Please log in to add items to your bag!");
+      navigate("/login");
+      return;
+    }
+
     try {
-      const token = localStorage.getItem("token");
       await axios.post(
         "http://localhost:5000/api/cart",
         { productId: product._id, quantity: 1 },
@@ -38,7 +44,8 @@ const HomePage = () => {
       setBagCount(bagCount + 1);
       alert(`${product.name} has been added to your bag!`);
     } catch (err) {
-      console.error(err);
+      console.error('Error adding to bag:', err.response?.data);
+      alert(`Failed to add ${product.name} to bag: ${err.response?.data?.message || err.message}`);
     }
   };
 
@@ -51,7 +58,10 @@ const HomePage = () => {
             <div className="col-md-6">
               <h1 className="display-4 fw-bold">Welcome to E-Commerce</h1>
               <p className="lead">Discover unique art and handmade products from talented artists.</p>
-              <button className="btn btn-primary btn-lg mt-3" onClick={() => navigate("/shop")}>
+              <button
+                className="btn btn-primary btn-lg mt-3"
+                onClick={() => navigate("/shop")}
+              >
                 Shop Now
               </button>
             </div>
@@ -70,22 +80,36 @@ const HomePage = () => {
             </div>
           </div>
           <h2 className="text-center my-5">Featured Products</h2>
-          <div className="row">
-            {products.map((product) => (
-              <div key={product._id} className="col-md-4 mb-4">
-                <div className="card h-100 shadow-sm">
-                  <img src={product.image} alt={product.name} className="card-img-top" style={{ height: "200px", objectFit: "cover" }} />
-                  <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">₹{product.price.toFixed(2)}</p>
-                    <button className="btn btn-primary" onClick={() => handleAddToBag(product)}>
-                      Add to Bag
-                    </button>
+          {error && <div className="alert alert-danger text-center">{error}</div>}
+          {products.length === 0 && !error ? (
+            <p className="text-center">Loading featured products...</p>
+          ) : (
+            <div className="row">
+              {products.map((product) => (
+                <div key={product._id} className="col-md-4 mb-4">
+                  <div className="card h-100 shadow-sm">
+                    <img
+                      src={`http://localhost:5000${product.image}`} // Full URL
+                      alt={product.name}
+                      className="card-img-top"
+                      style={{ height: "200px", objectFit: "cover" }}
+                      onError={(e) => (e.target.src = "/placeholder.jpg")} // Fallback image
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{product.name}</h5>
+                      <p className="card-text">₹{product.price.toFixed(2)}</p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleAddToBag(product)}
+                      >
+                        Add to Bag
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
       <Footer />
